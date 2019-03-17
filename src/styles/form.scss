@@ -1,0 +1,188 @@
+.form {
+    background: #EBEEF2;
+    padding: 40px 20px;
+
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        padding: 8px 20px 9px;
+        border-radius: 1px;
+        box-sizing: border-box;
+        border: 2px solid transparent;
+        transition: border-color ease-in-out .2s;
+        font-size: 14px;
+        line-height: normal;
+        color: #717B82;
+
+        &:focus {
+            outline: none;
+        }
+
+        &.not-empty, &:focus {
+            border: 2px solid #DEE1E5;
+
+            & + label {
+                font-size: 12px;
+                top: -20px;
+            }
+
+        }
+
+        @media screen and(min-width: 768px) {
+            &:hover {
+                border: 2px solid #DEE1E5;
+            }
+
+        }
+    }
+
+    .form-row {
+        position: relative;
+        max-width: 350px;
+        margin: 0 auto;
+
+        &:not(:first-child) {
+            margin-top: 30px;
+        }
+
+        label {
+            position: absolute;
+            left: 20px;
+            z-index: 1;
+            top: 10px;
+            transition: font-size ease-in-out .2s, top ease-in-out .2s;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: normal;
+            color: #717B82;
+        }
+
+    }
+
+}
+
+.drop-down {
+    min-height: 40px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow ease-in-out .2s;
+    cursor: pointer;
+
+    .drop-down-button {
+        @include reset-Button;
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        z-index: 1;
+        right: 5px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: 0;
+        color: transparent;
+        background: url("../images/svg/drop-down-arrow.svg") center center no-repeat;
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+    .item {
+        @include reset-Button;
+        display: block;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        padding: 10px 90px;
+        border-radius: 1px;
+    }
+
+    .icon {
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 55px;
+        height: auto;
+
+        svg {
+            width: 55px;
+            height: 20px;
+            object-fit: contain;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+    }
+
+    .number {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #2A2F34;
+        line-height: 1.44;
+    }
+
+    .drop-down-list {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        background: #fff;
+        border-radius: 1px;
+
+
+        .item {
+            &.active {
+                display: block;
+            }
+
+            &:not(.active) {
+                display: none;
+            }
+
+            &:not(:first-child) {
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    height: 1px;
+                    width: 100%;
+                    background: #EBEEF2;
+                }
+            }
+
+        }
+    }
+
+    &.show {
+        .drop-down-button {
+            transform: rotate(180deg);
+
+        }
+
+        .item {
+            &:not(.active) {
+                display: block;
+            }
+
+        }
+    }
+
+    &:hover {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
