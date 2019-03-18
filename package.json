@@ -4,6 +4,8 @@
     "description": "neotech test project",
     "private": true,
     "dependencies": {
+        "es6-promise": "^4.2.6",
+        "isomorphic-fetch": "^2.2.1",
         "npm": "^6.4.1"
     },
     "devDependencies": {

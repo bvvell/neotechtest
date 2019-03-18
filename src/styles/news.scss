@@ -34,9 +34,8 @@
             width: 100%;
             height: auto;
             object-fit: cover;
-            transition: transform ease-in-out .2s;
+            transition: transform ease-in-out 0.2s;
         }
-
     }
 
     &-big {
@@ -68,7 +67,6 @@
             padding: 10px 20px;
             box-sizing: border-box;
         }
-
     }
 
     &:not(.news-big) {
@@ -111,16 +109,20 @@
                 left: 0;
                 top: 0;
                 right: 0;
-                background: #EBEEF2;
+                background: #ebeef2;
             }
         }
-
     }
 
-
     @media screen and (min-width: 768px) {
+        &:focus-within {
+            .news-image {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
         &:hover,
-        &:focus-within,
         &:focus {
             .news-image {
                 img {
@@ -172,5 +174,4 @@
             }
         }
     }
-
 }

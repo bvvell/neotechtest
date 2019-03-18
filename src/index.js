@@ -1,6 +1,31 @@
 //style
 require("./styles/index.scss");
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 import {tns} from "../node_modules/tiny-slider/src/tiny-slider"
+
+
+//polyfil for ie 11 
+if (window.Element && !Element.prototype.closest) {
+  Element.prototype.closest =
+  function(s) {
+    var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+        i,
+        el = this;
+    do {
+      i = matches.length;
+      while (--i >= 0 && matches.item(i) !== el) {};
+    } while ((i < 0) && (el = el.parentElement));
+    return el;
+  };
+}
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+}
+//polyfil for ie 11 
+
+
 
 let slider;
 
